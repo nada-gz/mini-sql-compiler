@@ -22,13 +22,13 @@ The lexer recognizes and categorizes the following token types using Python’s 
 | Token Type | Description |
 |-------------|-------------|
 | **KEYWORD** | SQL reserved words such as `SELECT`, `FROM`, `WHERE`, `INSERT`, `UPDATE`, `DELETE`, `CREATE`, `TABLE`, `INT`, `FLOAT`, `TEXT`, `AND`, `OR`, `NOT`. |
-| **IDENTIFIER** | User-defined names following the pattern `[a-zA-Z_][a-zA-Z0-9_]*`. |
+| **IDENTIFIER** | User-defined names following the pattern `[a-zA-Z][a-zA-Z0-9_]*`. |
 | **INT_LITERAL** | Integer constants such as `10`, `25`, etc. |
 | **FLOAT_LITERAL** | Floating-point constants such as `3.14`, `45.6`, etc. |
 | **STRING_LITERAL** | Text enclosed in single quotes `'example'`. |
 | **OPERATOR** | Arithmetic and relational operators like `+`, `-`, `*`, `/`, `=`, `!=`, `<`, `<=`, `>`, `>=`. |
 | **PUNCTUATION** | Symbols such as `,`, `;`, `(`, `)`. |
-| **COMMENT** | Single-line (`-- comment`) and multi-line (`/* ... */`) comments. |
+| **COMMENT** | Single-line (`-- comment`) and multi-line (##...##) comments. |
 | **EOF** | Indicates the end of file. |
 | **ERROR** | Represents invalid or unrecognized symbols. |
 

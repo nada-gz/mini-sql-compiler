@@ -85,15 +85,15 @@ SELECT * FROM Students;  -- Fetch all students
 SELECT id, name FROM users;  -- Get user info
 
 -- ============================================
--- TEST 10: Multi-Line Comments (#...#)
+-- TEST 10: Multi-Line Comments (##...##)
 -- ============================================
-# This is a multi-line comment
+## This is a multi-line comment
 that spans across multiple lines
-and continues until it closes #
+and continues until it closes ##
 SELECT * FROM courses;
 
-# Another multi-line comment
-explaining the query #
+## Another multi-line comment
+explaining the query ##
 SELECT name FROM students;
 
 -- ============================================
@@ -114,18 +114,7 @@ SELECT @id FROM students;
 UPDATE users SET email = user@domain.com WHERE id = 1;
 
 -- ============================================
--- TEST 13: ERROR - Unclosed String Literal
--- ============================================
-INSERT INTO students VALUES (3, 'Ahmed', 'ahmed@nu.edu.eg;
-
--- ============================================
--- TEST 14: ERROR - Unterminated Multi-Line Comment
--- ============================================
-# This comment is not closed
-SELECT * FROM students;
-
--- ============================================
--- TEST 15: Complex Query with All Token Types
+-- TEST 13: Complex Query with All Token Types
 -- ============================================
 SELECT 
     student_id, 
@@ -139,7 +128,7 @@ OR status = 'active'
 ORDER BY gpa DESC;
 
 -- ============================================
--- TEST 16: Data Types
+-- TEST 14: Data Types
 -- ============================================
 CREATE TABLE Students (
     id INT,
@@ -148,7 +137,7 @@ CREATE TABLE Students (
 );
 
 -- ============================================
--- TEST 17: Mixed Keywords and Identifiers
+-- TEST 15: Mixed Keywords and Identifiers
 -- ============================================
 SELECT COUNT FROM stats;
 SELECT FROM FROM tables;
@@ -156,7 +145,7 @@ SELECT INTO FROM destinations;
 SELECT VALUES FROM records;
 
 -- ============================================
--- TEST 18: Edge Cases
+-- TEST 16: Edge Cases
 -- ============================================
 SELECT _ FROM t;
 SELECT _1 FROM t1;
@@ -164,7 +153,7 @@ SELECT a_b_c_d FROM table_with_underscores;
 SELECT 0, 0.0, 1.0 FROM numbers;
 
 -- ============================================
--- TEST 19: All Keywords Together
+-- TEST 17: All Keywords Together
 -- ============================================
 SELECT col1, col2 FROM Table1 WHERE id > 10 INSERT INTO Table2 VALUES (1, 2);
 UPDATE Table1 SET col1 = 'new' WHERE id = 1;
@@ -172,8 +161,19 @@ DELETE FROM Table1 WHERE id = 1;
 CREATE TABLE Test (id INT, name TEXT);
 
 -- ============================================
--- TEST 20: Case Sensitivity Mixed
+-- TEST 18: Case Sensitivity Mixed
 -- ============================================
 select Name, EMAIL from students where Age > 20;
 Select ID, Price From Products Where Stock <= 10;
 SELECT id, price FROM products WHERE stock <= 10;
+
+-- ============================================
+-- TEST 19: ERROR - Unclosed String Literal
+-- ============================================
+INSERT INTO students VALUES (3, 'Ahmed', 'ahmed@nu.edu.eg;
+
+-- ============================================
+-- TEST 20: ERROR - Unterminated Multi-Line Comment
+-- ============================================
+## This comment is not closed
+SELECT * FROM students;
