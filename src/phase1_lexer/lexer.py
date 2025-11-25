@@ -147,12 +147,12 @@ class LexicalAnalyzer:
 
         # First character must be a letter
         if not self.current_char().isalpha():
+            skip = self.current_char()
             # Skip entire invalid sequence of letters/digits/underscores
             while self.current_char() and (self.current_char().isalnum() or self.current_char() == '_'):
-                value += self.current_char()
                 self.advance()
             self.errors.add_error(
-                f"Error: invalid identifier starting with '{value}' at line {start_line}, column {start_col}",
+                f"Error: invalid identifier starting with '{skip}' at line {start_line}, column {start_col}",
                 start_line,
                 start_col
             )
